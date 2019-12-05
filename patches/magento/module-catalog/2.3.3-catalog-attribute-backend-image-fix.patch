@@ -1,0 +1,15 @@
+--- magento/vendor/magento/module-catalog/Model/Category/Attribute/Backend/Image.php
++++ magento/vendor/magento/module-catalog/Model/Category/Attribute/Backend/Image.php
+@@ -125,7 +125,9 @@ class Image extends \Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend
+         }
+
+         if ($imageName = $this->getUploadedImageName($value)) {
+-            $imageName = $this->checkUniqueImageName($imageName);
++		if (array_key_exists('tmp_name', $value[0])) {
++            		$imageName = $this->checkUniqueImageName($imageName);
++		}
+             $object->setData($this->additionalData . $attributeName, $value);
+             $object->setData($attributeName, $imageName);
+         } elseif (!is_string($value)) {
+--
+2.17.1

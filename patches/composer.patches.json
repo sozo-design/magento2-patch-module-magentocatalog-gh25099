@@ -1,0 +1,7 @@
+{
+  "patches": {
+    "magento/module-catalog": {
+      "Fix 2.3.3 Category Image Attribute issue": "../environments/global/patches/magento/module-catalog/2.3.3-catalog-attribute-backend-image-fix.patch"
+    }
+  }
+}
